@@ -37,7 +37,7 @@
       var url = window.location.search.match(/url=([^&]+)/);
       if (url && url.length > 1) {
         url = url[1];
-        if (url.slice(0, 11) != "github.com/") {
+        if (url.slice(0, 10) != "github.com") {
           url = "github.com/" + url;
         }
         url = "http://api.swagger.goa.design:8080/swagger/spec/"+decodeURIComponent(url);
@@ -85,6 +85,7 @@
       });
 
       function addApiKeyAuthorization(){
+        return // TBD implement
         var key = encodeURIComponent($('#input_apiKey')[0].value);
         if(key && key.trim() != "") {
             var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("api_key", key, "query");
@@ -119,7 +120,7 @@
 <body class="swagger-section">
 <div id='header'>
   <div class="logo">
-    <img alt="goa" src="../images/goa-logo.svg"/>
+    <a href="http://goa.design"><img alt="goa" src="../images/goa-logo.svg"/></a>
   </div>
   <div class="center">
     Swagger Generator
@@ -131,7 +132,7 @@
 <div class="modal" id="selector">
     <div class="center">
       <form id="prompt" action="#">
-        <input id="input_baseUrl" name="url" type="text" placeholder="github.com/goadesign/goa-cellar/design"/>
+        <input id="input_baseUrl" name="url" type="text" value="goadesign/goa-cellar/design" placeholder="github.com/goadesign/goa-cellar/design"/>
         <button type="submit">Generate</button>
       </form>
         <!-- design package: <input id="input_baseUrl" name="url" type="text" onclick="this.select()" /> -->

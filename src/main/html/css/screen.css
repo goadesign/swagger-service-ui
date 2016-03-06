@@ -1349,6 +1349,7 @@ p {
   min-height: 30px;
   text-align: center;
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 .swagger-section .swagger-collapse:before {
   content: "-";
