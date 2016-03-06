@@ -1,79 +1,76 @@
-.modal {
-        display:none;
-        position: absolute;
-        top: 100px;
-        left: 2%;
-        width: 96%;
+/* Remove button margins in Webkit */
+* { margin: 0; padding: 0; }
+
+/* Remove button padding in FF */
+button::-moz-focus-inner {
+    border:0;
+    padding:0;
 }
 
-.prompt {
-        font-size: 36px;
-        color: #556677;
-        margin-bottom:20px;
-        text-align:center;
-}
-
-.wrap {
-        position:relative;
-	margin:0;
-	padding:10px;
-}
-
-.left {
-        position:relative;
-        top:-10px;
-        left:-10px;
-        float:left;
-        width:120px;  /* for IE5/WIN */
-        voice-family: "\"}\"";
-        voice-family:inherit;
-        width:200px; /* actual value */
-        margin:0 0 -10px 0;
-        padding:10px;
-        z-index:100;
+form#prompt {
+    /* style */
+    background-color: #333;
+    padding: 5px;
 }
 
 .center {
-         position:relative;
-         padding:0 220px;
-  }
-
-.center input[type=text] {
-        border: solid 1px #89b3af;
-        font-size: 20px;
-        padding: 5px;
-        height: 24px;
-        width: 100%;
+	margin:auto;
+	width: 500px;
+	font-size: 1.2em;
+	color: #444;
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin-bottom: 30px;
 }
 
 .right {
-        position:relative;
-	top:-10px;
-	right:-10px;
-	float:right;
-	width:40px;  /* for IE5/WIN */
-	voice-family: "\"}\"";
-	voice-family:inherit;
-	width:200px; /* actual value */
-	margin:0 0 -10px 0;
-	padding:10px;
-	z-index:99;
+	float: right;
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.2em;
 }
 
-.filename {
-        font-size: 20px;
-        color: #99aabb;
-        height: 36px;
-        text-align: right;
-        margin-top:6px;
+form#prompt input {
+    /* style */
+    border: none;
+    padding: 7px;
+
+    /* default input size isn't wide enough */
+    width: 100%;
+
+    /* keeps input from overflowing its container */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    /* prevents input from flowing behind the button */
+    padding-right: 60px;
+
+    /* line-height (which determines height) renders slightly different across browsers.
+    But specifiying a fixed line-height: 14px caused a 1px difference in IE.
+    I found it easier just to lock in the height */
+    height: 38px;
+
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
 }
 
-#explore {
-        display: block;
-        background: url("../images/go-button.png");
-        background-size: 36px 36px;
-        width: 36px;
-        height: 36px;
-        margin-left: 10px;
-        text-indent:-360000px;
+form button {
+    /* style */
+    background-color: #56BAFD;
+    border: none;
+    padding: 7px;
+
+    /* to match input height above */
+    height: 38px;
+
+    /* removes the box from DOM */
+    float: right;
+
+    /* alternative to negative margin-top,
+    which seems to hide my button behind the input */
+    position: relative;
+    top: -38px;
+
+
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
 }

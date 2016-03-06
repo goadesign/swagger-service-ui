@@ -13,13 +13,14 @@ SwaggerUi.Views.HeaderView = Backbone.View.extend({
       trigger = false;
     }
 
-    if (url) {
-      var val = url.replace(/^http:\/\/api.swagger.goa.design:8080\/swagger\/spec\/github.com\//, '');
-      $('#input_baseUrl').val(decodeURIComponent(val));
+    if (!url) {
+      url = 'http://api.swagger.goa.design:8080/swagger/spec/github.com/goadesign/goa-cellar/design';
+    }
+    var val = url.replace(/^http:\/\/api.swagger.goa.design:8080\/swagger\/spec\/github.com\//, '');
+    $('#input_baseUrl').val(decodeURIComponent(val));
 
-      if (trigger) {
-        this.trigger('update-swagger-ui', {url:url});
-      }
+    if (trigger) {
+      this.trigger('update-swagger-ui', {url:url});
     }
   }
 });
