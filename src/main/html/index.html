@@ -5,6 +5,7 @@
   <title>Swagger UI</title>
   <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
+  <link href='css/modal.css' media='screen' rel='stylesheet' type='text/css'/>
   <link href='css/typography.css' media='screen' rel='stylesheet' type='text/css'/>
   <link href='css/reset.css' media='screen' rel='stylesheet' type='text/css'/>
   <link href='css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
@@ -34,9 +35,11 @@
     $(function () {
       var url = window.location.search.match(/url=([^&]+)/);
       if (url && url.length > 1) {
-        url = decodeURIComponent(url[1]);
-      } else {
-        url = "http://petstore.swagger.io/v2/swagger.json";
+        url = url[1];
+        if (url.slice(0, 11) != "github.com/") {
+          url = "github.com/" + url;
+        }
+        url = "http://api.swagger.goa.design:8080/swagger/spec/"+decodeURIComponent(url);
       }
 
       hljs.configure({
@@ -70,9 +73,10 @@
           addApiKeyAuthorization();
         },
         onFailure: function(data) {
+          $("#selector").show();
           log("Unable to Load SwaggerUI");
         },
-        docExpansion: "none",
+        docExpansion: "list",
         jsonEditor: false,
         apisSorter: "alpha",
         defaultModelRendering: 'schema',
@@ -103,6 +107,10 @@
           console.log.apply(console, arguments);
         }
       }
+
+      if (!($("#input_baseUrl").val())) {
+        $("#input_baseUrl").val("goadesign/goa-cellar/design");
+      }
   });
   </script>
 </head>
@@ -110,16 +118,35 @@
 <body class="swagger-section">
 <div id='header'>
   <div class="swagger-ui-wrap">
-    <a id="logo" href="http://swagger.io">swagger</a>
-    <form id='api_selector'>
-      <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
-      <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
-      <div class='input'><a id="explore" href="#" data-sw-translate>Explore</a></div>
-    </form>
+    <a id="logo" href="http://swagger.goa.design">goa swagger</a>
+    (<a class="subtext" href="http://goa.design/design/swagger.html">what is this?</a>)
   </div>
 </div>
 
 <div id="message-bar" class="swagger-ui-wrap" data-sw-translate>&nbsp;</div>
+<div class="modal" id="selector">
+  <form accept-charset="UTF-8" id="prompt">
+    <div class="prompt">
+      <p>goa service design package:</p>
+    </div>
+    <div class="wrap">
+      <div class="left">
+        <div class="filename">
+          github.com/
+        </div>
+      </div>
+      <div class="right">
+        <a id="explore" href="#" onclick="$('#prompt').submit();">Go</a>
+      </div>
+      <div class="center">
+        <input id="input_baseUrl" name="url" type="text" onclick="this.select()" />
+      </div>
+      <div class="center">
+        <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
+      </div>
+    </div>
+  </form>
+</div>
 <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
 </body>
 </html>
