@@ -1,0 +1,75 @@
+.modal {
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 2%;
+  width: 96%;
+}
+.prompt {
+  font-size: 36px;
+  color: #556677;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.wrap {
+  position: relative;
+  margin: 0;
+  padding: 10px;
+}
+.left {
+  position: relative;
+  top: -10px;
+  left: -10px;
+  float: left;
+  width: 120px;
+  /* for IE5/WIN */
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  width: 200px;
+  /* actual value */
+  margin: 0 0 -10px 0;
+  padding: 10px;
+  z-index: 100;
+}
+.center {
+  position: relative;
+  padding: 0 220px;
+}
+.center input[type=text] {
+  border: solid 1px #89b3af;
+  font-size: 20px;
+  padding: 5px;
+  height: 24px;
+  width: 100%;
+}
+.right {
+  position: relative;
+  top: -10px;
+  right: -10px;
+  float: right;
+  width: 40px;
+  /* for IE5/WIN */
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  width: 200px;
+  /* actual value */
+  margin: 0 0 -10px 0;
+  padding: 10px;
+  z-index: 99;
+}
+.filename {
+  font-size: 20px;
+  color: #99aabb;
+  height: 36px;
+  text-align: right;
+  margin-top: 6px;
+}
+#explore {
+  display: block;
+  background: url("../images/go-button.png");
+  background-size: 36px 36px;
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+  text-indent: -360000px;
+}
