@@ -2465,7 +2465,7 @@ Resolver.prototype.finish = function (spec, root, resolutionTable, resolvedRefs,
 
         for (key in resolvedTo.obj) {
           var abs = resolvedTo.obj[key];
-          
+
           if (localResolve !== true) {
             // don't retain root for local definitions
             abs = this.retainRoot(resolvedTo.obj[key], item.root);
@@ -24701,7 +24701,7 @@ Emitter.prototype.hasListeners = function(event){
  * TODO: combatible error handling?
  */
 
-module.exports = function(arr, fn, initial){  
+module.exports = function(arr, fn, initial){
   var idx = 0;
   var len = arr.length;
   var curr = arguments.length == 3
@@ -24711,7 +24711,7 @@ module.exports = function(arr, fn, initial){
   while (idx < len) {
     curr = fn.call(null, curr, arr[idx], ++idx, arr);
   }
-  
+
   return curr;
 };
 },{}]},{},[1])(1)
@@ -25139,10 +25139,10 @@ SwaggerUi.Views.HeaderView = Backbone.View.extend({
       trigger = false;
     }
     if (!url) {
-      url = 'http://api.swagger.goa.design:8080/swagger/spec/github.com/goadesign/goa-cellar/design';
+      url = 'http://api.swagger.goa.design/swagger/spec/github.com/goadesign/goa-cellar/design';
     }
 
-    var val = url.replace(/^http:\/\/api.swagger.goa.design:8080\/swagger\/spec\/github.com\//, '');
+    var val = url.replace(/^http:\/\/api.swagger.goa.design\/swagger\/spec\/github.com\//, '');
     $('#input_baseUrl').val(decodeURIComponent(val));
 
     if (trigger) {
