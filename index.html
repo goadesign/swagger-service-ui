@@ -61,7 +61,9 @@
         if (url.slice(0, 10) != "github.com") {
           url = "github.com/" + url;
         }
-        url = "https://api.swagger.goa.design/swagger/spec/"+decodeURIComponent(url);
+        if (url.slice(0,4) != "http") {
+          url = "https://api.swagger.goa.design/swagger/spec?pkg="+decodeURIComponent(url);
+        }
       }
 
       hljs.configure({
