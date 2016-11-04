@@ -25139,10 +25139,10 @@ SwaggerUi.Views.HeaderView = Backbone.View.extend({
       trigger = false;
     }
     if (!url) {
-      url = 'https://api.swagger.goa.design/swagger/spec/github.com/goadesign/goa-cellar/design';
+      url = 'https://swagger-api.goa.design/swagger/spec?pkg=github.com/goadesign/goa-cellar/design';
     }
 
-    var val = url.replace(/^https:\/\/api.swagger.goa.design\/swagger\/spec\/github.com\//, '');
+    var val = url.replace(/^https:\/\/api.swagger.goa.design\/swagger\/spec\?pkg=/, '');
     $('#input_baseUrl').val(decodeURIComponent(val));
 
     if (trigger) {

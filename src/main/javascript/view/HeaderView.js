@@ -38,7 +38,7 @@ SwaggerUi.Views.HeaderView = Backbone.View.extend({
       trigger = false;
     }
 
-    var val = url.replace(/^https:\/\/api.swagger.goa.design\/swagger\/spec\/github.com\//, '');
+    var val = url.replace(/^https:\/\/swagger-api.goa.design\/swagger\/spec\/github.com\//, '');
     $('#input_baseUrl').val(decodeURIComponent(val));
 
     //$('#input_apiKey').val(apiKey);
