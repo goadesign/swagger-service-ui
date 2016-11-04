@@ -25142,7 +25142,7 @@ SwaggerUi.Views.HeaderView = Backbone.View.extend({
       url = 'https://swagger-api.goa.design/swagger/spec?pkg=github.com/goadesign/goa-cellar/design';
     }
 
-    var val = url.replace(/^https:\/\/api.swagger.goa.design\/swagger\/spec\?pkg=/, '');
+    var val = url.replace(/^https:\/\/swagger-api.goa.design\/swagger\/spec\?pkg=/, '');
     $('#input_baseUrl').val(decodeURIComponent(val));
 
     if (trigger) {
